@@ -15,22 +15,51 @@
       <div class="jumbotron col-12">
         <h1 class="display-4">Control de empleados</h1>
       </div>
-      <div class="row">
+      <div class="row col-12">
         <form>
-          <div class=""></div>
-          <label for="employeeNumber">Número de trabajador: </label>
-          <input type="number">
-          <label for="name">Nombre:</label>
-          <input type="text">
-          <label for="birthday">Fecha de nacimiento:</label>
+          <div class="form-group">
+            <label for="employeeNumber">Número de trabajador: </label>
+            <input type="number" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="birthday">Fecha de nacimiento:</label>
+            <input type="date" class="form-control">
+          </div>
+          
         </form>
       </div>
+      <br>
+      <br>
       <div class="row">
-        <div class="col-4">
-          tabla info
-        </div>
+       <div class="col-4">
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th>info</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
         <div class="col-8">
-          tabla empleados
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>Número de trabajador</th>
+                <th>Nombre completo</th>
+                <th>Fecha de nacimiento</th>
+                <th>Fecha de contratación</th>
+                <th>Sueldo</th>
+                <th>Edad</th>
+                <th>Antigüedad</th>
+              </tr>
+            </thead>
+            <tbody>              
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
