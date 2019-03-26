@@ -1,32 +1,115 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Empresa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Control de viáticos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 </head>
 
 <body>
+  <div class="container-fluid col-12">
+    <div class="row col-12">
+      <div class="jumbotron col-12">
+        <h1 class="display-4">Control de viáticos</h1>
+      </div>
+      <div class="row col-12 justify-content-center">
+        <form id="form" class="col-10 row justify-content-center needs-validation" novalidate>
+          <div class="form-group row col-10 justify-content-around">
+            <label for="fecha" class="col-5">Fecha del gasto:</label>
+            <input id="fecha" type="date" class="form-control col-5" required>
+            <div class="row valid-feedback justify-content-end">Correcto</div>
+            <div class="row invalid-feedback justify-content-end">Por favor introduzca una fecha válida</div>
+          </div>
+          <div class="form-group row col-10 justify-content-around">
+            <label for="tipo" class="col-5">Tipo de gasto:</label>
+            <select id="tipo" class="select col-5">
+              <option value="transporte">Transporte</option>
+              <option value="hospedaje">Hospedaje</option>
+              <option value="alimentos">Alimentos</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+          <div class="form-group row col-10 justify-content-around">
+            <label for="concepto" class="col-5">Concepto:</label>
+            <input id="concepto" type="text" class="form-control col-5" required>
+            <div class="row valid-feedback justify-content-end">Correcto</div>
+            <div class="row invalid-feedback justify-content-end">Por favor introduzca un valor válido</div>
+          </div>
+          <div class="form-group row col-10 justify-content-around">
+            <label for="monto" class="col-5">Monto:</label>
+            <input id="monto" type="number" class="form-control col-5" required>
+            <div class="row valid-feedback justify-content-end">Correcto</div>
+            <div class="row invalid-feedback justify-content-end">Por favor introduzca un nombre válido</div>
+          </div>
+          <div class="form-group row col-10 justify-content-center">
+            <button type="button" id="btnAdd" class="btn btn-primary justify-content-center col-4">Añadir</button>
+          </div>
+        </form>
+      </div>
+      <br>
+      <br>
+      <div class="row col-12 justify-content-between">
+        <div class="row col-5">
+          <table id="tablaInformacion" class="table table-primary">
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gastos en transporte</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Gastos en hospedaje</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Alimentos</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Otros gastos</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-7">
+          <table id="tablaGastos" class="table table-dark">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Concepto</th>
+                <th>Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-    <script src="./Main.js" type="module"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  <script src="./Main.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

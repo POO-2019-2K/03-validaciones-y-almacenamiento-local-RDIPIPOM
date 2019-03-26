@@ -1,12 +1,12 @@
 export default class Employee{
-    constructor(number, name, birthday, hireDate, salary, age, antiquity){
-        this._number = number;
-        this._name = name;
-        this._birthday = birthday;
-        this._hireDate = hireDate;
-        this._salary = salary;
-        this._age = age;
-        this._antiquity = antiquity;
+    constructor(employee){
+        this._number = employee.number;
+        this._name = employee.name;
+        this._birthday = employee.birthday;
+        this._hireDate = employee.hireDate;
+        this._salary = employee.salary;
+        this._age = this._getAge();
+        this._antiquity = this._getAntiquityInYears();
     }
 
     get number(){
@@ -37,7 +37,19 @@ export default class Employee{
         return this._antiquity;
     }
 
-    getAgeAsString(){
-        return this._age.getDate() + "/" + this._age.getMonth() + "/" + this._age.getFullYear();
+    getBirthdayAsString(){
+        return this._birthday.getDate() + "/" + this._birthday.getMonth() + "/" + this._birthday.getFullYear();
+    }
+
+    getHireDateAsString(){
+        return this._hireDate.getDate() + "/" + this._hireDate.getMonth() + "/" + this._hireDate.getFullYear();
+    }
+
+    _getAge(){
+        return Math.trunc(Number(Date.now() - this._birthday.getTime())/(1000*60*60*24*365));
+    }
+
+    _getAntiquityInYears(){
+        return Math.trunc(Number(Date.now() - this._hireDate.getTime())/(1000*60*60*24*365));
     }
 }
